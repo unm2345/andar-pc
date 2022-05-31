@@ -1,0 +1,23 @@
+@mixin el($line : 1, $lh: inherit) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: $lh;
+  
+  @if ($line == 1) {
+    white-space: nowrap; 
+  } @else if($line > 1){
+    max-height: $lh * $line;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;    
+    -webkit-line-clamp: $line;
+  }
+}
+
+@mixin cf {
+  &::after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  
+}
